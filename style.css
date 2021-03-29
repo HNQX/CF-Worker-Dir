@@ -14,8 +14,9 @@ header {
 }
 
 #head {
-/*   background-image: linear-gradient(to top, #537895 0%, #09203f 100%); */
   background-image: url(https://52152121.xyz:888/images/2021/01/08/D56oM4.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 #nav .item {
