@@ -2,9 +2,9 @@
  *  自定义网站配置 
  */
 const config = {
-  title: "自定义导航",                 //write your website title
-  subtitle: "Cloudflare Workers Dir", //write your website subtitle
-  logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
+  title: "LOVE REOL FOREVER",                 //write your website title
+  subtitle: "have fun here", //write your website subtitle
+  logo_icon: "heart outline",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
@@ -25,7 +25,7 @@ const config = {
       template:"https://www.sogou.com/web?query=$s"
     }
   ],
-  selling_ads: true,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
+  selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
   sell_info:{
     domain:"example.com",
     price:500,                        //domain price
@@ -125,7 +125,7 @@ function getFavicon(url){
 
 function renderIndex(){
   const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/sleepwood/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
-  return renderHeader() + renderMain() + footer;
+  return renderHeader() + renderMain();
 }
 
 function renderHeader(){
@@ -182,8 +182,9 @@ function renderHTML(index,seller) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
+      <link rel="shortcut icon" href="https://hnqx.github.io/favicon.ico" />
       <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/HNQX/CF-Worker-Dir@master/style.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
   </head>
