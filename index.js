@@ -3,7 +3,7 @@
  */
 const config = {
     title: "LOVE REOL FOREVER",                 //write your website title
-    subtitle: "have fun here", //write your website subtitle
+    subtitle: "", //write your website subtitle
     logo_icon: "heart outline",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
     hitokoto: true,                     //use hitokoto or not
     search: true,                        //enable search function
@@ -173,7 +173,7 @@ function renderHeader() {
             return item(link.template, link.name);
         }
     }).join(""))
-    var input = el('div', [ 'class="ui left corner labeled right icon fluid large input"' ], el('div', [ 'class="ui left corner label"' ], el('img', [ 'id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"' ], "")) + el('input', [ 'id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"' ], "") + el('i', [ 'class="inverted circular search link icon"' ], ""));
+    var input = el('div', [ 'style="opacity:0.75;"' ,'class="ui left corner labeled right icon fluid large input"' ], el('div', [ 'class="ui left corner label"' ], el('img', [ 'id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"' ], "")) + el('input', [ 'id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"' ], "") + el('i', [ 'class="inverted circular search link icon"' ], ""));
     return el('header', [], el('div', [ 'id="head"', 'class="ui inverted vertical masthead center aligned segment"' ], (config.hitokoto ? el('div', [ 'id="nav"', 'class="ui container"' ], nav) : "") + el('div', [ 'id="title"', 'class="ui text container"' ], title + (config.search ? input + menu : "") + `${ config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : '' }`)))
 }
 
@@ -217,7 +217,7 @@ function renderHTML(index, seller) {
         <title>${ config.title } - ${ config.subtitle }</title>
         <link rel="shortcut icon" href="https://hnqx.github.io/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/gh/HNQX/CF-Worker-Dir@master/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/HNQX/CF-Worker-Dir@master/sty.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
     </head>
