@@ -2,9 +2,9 @@
  *  自定义网站配置
  */
 const config = {
-    title: "LOVE REOL FOREVER",                 //write your website title
+    title: "",                 //write your website title
     subtitle: "", //write your website subtitle
-    logo_icon: "heart outline",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
+    logo_icon: "",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
     hitokoto: true,                     //use hitokoto or not
     search: true,                        //enable search function
     search_engine: [                     //choose search engine which you use
@@ -25,7 +25,7 @@ const config = {
             template: "https://www.sogou.com/web?query=$s"
         }
     ],
-    selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
+    selling_ads: true,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
     sell_info: {
         domain: "example.com",
         price: 500,                        //domain price
@@ -38,6 +38,65 @@ const config = {
         ]
     },
     lists: [                            //Url list
+        {
+            name: "个人",
+            icon: "twitter",
+            list: [
+                {
+                    url: "https://52152121.xyz:777",
+                    name: "博客",
+                    desc: "个人Blog"
+                },
+                {
+                    url: "https://c.hnqx.cc",
+                    name: "HEXO",
+                    desc: "轻量博客",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/stereo.png"
+                },
+                {
+                    url: "https://hnqx.cc",
+                    name: "短网址",
+                    desc: "免费",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/url.png"
+                },
+                {
+                    url: "https://chat.hnqx.cc",
+                    name: "聊天室",
+                    desc: "来水群",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/chat.png"
+                },
+                {
+                    url: "https://hanx.glitch.me/one/",
+                    name: "Drive",
+                    desc: "索引盘",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/cloud.png"
+                },
+                {
+                    url: "https://52152121.xyz:888/",
+                    name: "图床",
+                    desc: "免费",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/photo.png"
+                },
+                {
+                    url: "https://52152121.xyz:800",
+                    name: "Map",
+                    desc: "测试中。。。",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/map.png"
+                },
+                {
+                    url: "https://hnqx.github.io",
+                    name: "Github",
+                    desc: "托管",
+                    custom: "https://52152121.xyz:888/images/2021/04/08/github.png"
+                },
+                {
+                    url: "https://proxy.hanc.workers.dev/",
+                    name: "Proxy",
+                    desc: "代理"
+                }
+            ]
+        },
+
         {
             name: "技术",
             icon: "code",
@@ -58,68 +117,15 @@ const config = {
                     desc: "程序员集散地"
                 },
                 {
-                    url: "https://github.com/",
-                    name: "Github",
-                    desc: "程序员集散地"
-                },
-            ]
-        },
-        {
-            name: "个人",
-            icon: "twitter",
-            list: [
-                {
-                    url: "https://52152121.xyz:777",
-                    name: "博客",
-                    desc: "个人Blog"
-                },
-                {
-                    url: "https://c.hnqx.cc",
-                    name: "HEXO",
-                    desc: "轻量博客",
-                    custom: "https://52152121.xyz:888/images/2021/03/29/blog.png"
-                },
-                {
-                    url: "https://hnqx.cc",
-                    name: "短网址",
-                    desc: "免费",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/link.png"
-                },
-                {
-                    url: "https://chat.hnqx.cc",
-                    name: "聊天室",
-                    desc: "来水群",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/chat.png"
-                },
-                {
-                    url: "https://hnqx-one.herokuapp.com/",
-                    name: "Drive",
-                    desc: "索引盘",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/pan.png"
-                },
-                {
-                    url: "https://52152121.xyz:888/",
-                    name: "图床",
-                    desc: "免费",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/photo.png"
-                },
-                {
-                    url: "https://52152121.xyz:800",
-                    name: "Map",
-                    desc: "测试中。。。",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/map.png"
-                },
-                {
-                    url: "https://hnqx.github.io",
-                    name: "Github",
-                    desc: "托管",
-                    custom:"https://52152121.xyz:888/images/2021/03/29/github.png"
-                },
+                    url: "https://cesium.com/docs/cesiumjs-ref-doc/Cartesian3.html",
+                    name: "Cesium",
+                    desc: "Cesium"
+                }
             ]
         }
     ]
 }
-const el = (tag, attrs, content) => `<${ tag } ${ attrs.join(" ") }>${ content }</${ tag }>`;
+const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
 
 async function handleRequest(request) {
     const init = {
@@ -157,54 +163,55 @@ function getFavicon(url, custom) {
  */
 
 function renderIndex() {
-    const footer = el('footer', [], el('div', [ 'class="footer"' ], 'Powered by' + el('a', [ 'class="ui label"', 'href="https://github.com/sleepwood/cf-worker-dir"', 'target="_blank"' ], el('i', [ 'class="github icon"' ], "") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a', [ 'class="ui label"' ], el('i', [ 'class="balance scale icon"' ], "") + 'MIT License')));
+    const footer = el('footer', [], el('div', ['class="footer"'], 'Powered by' + el('a', ['class="ui label"', 'href="https://github.com/sleepwood/cf-worker-dir"', 'target="_blank"'], el('i', ['class="github icon"'], "") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a', ['class="ui label"'], el('i', ['class="balance scale icon"'], "") + 'MIT License')));
     return renderHeader() + renderMain();
 }
 
 function renderHeader() {
-    const item = (template, name) => el('a', [ 'class="item"', `data-url="${ template }"` ], name);
+    const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
 
-    var nav = el('div', [ 'class="ui large secondary inverted menu"' ], el('div', [ 'class="item"' ], el('p', [ 'id="hitokoto"' ], '条条大路通罗马')))
-    var title = el('h1', [ 'class="ui inverted header"' ], el('i', [ `class="${ config.logo_icon } icon"` ], "") + el('div', [ 'class="content"' ], config.title + el('div', [ 'class="sub header"' ], config.subtitle)));
-    var menu = el('div', [ 'id="sengine"', 'class="ui bottom attached tabular inverted secondary menu"' ], el('div', [ 'class="header item"' ], '&nbsp;') + config.search_engine.map((link, key) => {
+    var nav = el('div', ['class="ui large secondary inverted menu"'], el('div', ['class="item"'], el('p', ['id="hitokoto"'], '条条大路通罗马')))
+    var title = el('h1', ['class="ui inverted header"'], el('i', [`class="${config.logo_icon} icon"`], "") + el('div', ['class="content"'], config.title + el('div', ['class="sub header"'], config.subtitle)));
+    var menu = el('div', ['id="sengine"', 'class="ui bottom attached tabular inverted secondary menu"'], el('div', ['class="header item"'], '&nbsp;') + config.search_engine.map((link, key) => {
         if (key == 0) {
-            return el('a', [ 'class="active item"', `data-url="${ link.template }"` ], link.name);
+            return el('a', ['class="active item"', `data-url="${link.template}"`], link.name);
         } else {
             return item(link.template, link.name);
         }
     }).join(""))
-    var input = el('div', [ 'style="opacity:0.75;"' ,'class="ui left corner labeled right icon fluid large input"' ], el('div', [ 'class="ui left corner label"' ], el('img', [ 'id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"' ], "")) + el('input', [ 'id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"' ], "") + el('i', [ 'class="inverted circular search link icon"' ], ""));
-    return el('header', [], el('div', [ 'id="head"', 'class="ui inverted vertical masthead center aligned segment"' ], (config.hitokoto ? el('div', [ 'id="nav"', 'class="ui container"' ], nav) : "") + el('div', [ 'id="title"', 'class="ui text container"' ], title + (config.search ? input + menu : "") + `${ config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : '' }`)))
+    var input = el('div', ['style="opacity:0.75;"', 'class="ui left corner labeled right icon fluid large input"'], el('div', ['class="ui left corner label"'], el('img', ['id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"'], "")) + el('input', ['id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"'], "") + el('i', ['class="inverted circular search link icon"'], ""));
+    return el('header', [], el('div', ['id="head"', 'class="ui inverted vertical masthead center aligned segment"'], (config.hitokoto ? el('div', ['id="nav"', 'class="ui container"'], nav) : "") + el('div', ['id="title"', 'class="ui text container"'], title + (config.search ? input + menu : "") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 服务监控状态 </a></div>' : ''}`)))
 }
 
 function renderMain() {
     var main = config.lists.map((item) => {
-        const card = (url, name, desc, custom) => el('a', [ 'class="card"', `href=${ url }`, 'target="_blank"' ], el('div', [ 'class="content"' ], el('img', [ 'class="left floated avatar ui image"', `src=${ getFavicon(url, custom) }` ], "") + el('div', [ 'class="header"' ], name) + el('div', [ 'class="meta"' ], desc)));
-        const divider = el('h4', [ 'class="ui horizontal divider header"' ], el('i', [ `class="${ item.icon } icon"` ], "") + item.name);
+        const card = (url, name, desc, custom) => el('a', ['class="card"', `href=${url}`, 'target="_blank"'], el('div', ['class="content"'], el('img', ['class="left floated avatar ui image"', `src=${getFavicon(url, custom)}`], "") + el('div', ['class="header"'], name) + el('div', ['class="meta"'], desc)));
+        const divider = el('h4', ['class="ui horizontal divider header"'], el('i', [`class="${item.icon} icon"`], "") + item.name);
 
-        var content = el('div', [ 'class="ui four stackable cards"' ], item.list.map((link) => {
+        var content = el('div', ['class="ui four stackable cards"'], item.list.map((link) => {
             return card(link.url, link.name, link.desc, link.custom);
         }).join(""));
 
-        return el('div', [ 'class="ui basic segment"' ], divider + content);
+        return el('div', ['class="ui basic segment"'], divider + content);
     }).join("");
 
-    return el('main', [], el('div', [ 'class="ui container"' ], main));
+    return el('main', [], el('div', ['class="ui container"'], main));
 }
 
 function renderSeller() {
-    const item = (type, content) => el('div', [ 'class="item"' ], el('i', [ `class="${ type } icon"` ], "") + el('div', [ 'class="content"' ], content));
-    var title = el('h1', [ 'class="ui yellow dividing header"' ], el('i', [ 'class="gem outline icon"' ], "") + el('div', [ 'class="content"' ], config.sell_info.domain + ' 正在出售'));
-    var action = el('div', [ 'class="actions"' ], el('div', [ 'class="ui basic cancel inverted button"' ], el('i', [ 'class="reply icon"' ], "") + '返回'));
+    const item = (type, content) => el('div', ['class="item"'], el('i', [`class="${type} icon"`], "") + el('div', ['class="content"'], content));
+    var title = el('h1', ['class="ui yellow dividing header"'], el('i', ['class="gem outline icon"'], "") + el('div', ['class="content"'], config.sell_info.domain + ' 正在出售'));
+    var action = el('div', ['class="actions"'], el('div', ['class="ui basic cancel inverted button"'], el('i', ['class="reply icon"'], "") + '返回'));
 
     var contact = config.sell_info.contact.map((list) => {
         return item(list.type, list.content);
     }).join("");
-    var column = el('div', [ 'class="column"' ], el('h3', [ 'class="ui center aligned icon inverted header"' ], el('i', [ 'class="circular envelope open outline grey inverted icon"' ], "") + '联系我') + el('div', [ 'class="ui relaxed celled large list"' ], contact));
-    var price = el('div', [ 'class="column"' ], el('div', [ 'class="ui large yellow statistic"' ], el('div', [ 'class="value"' ], el('i', [ `class="${ config.sell_info.mon_unit } icon"` ], "") + config.sell_info.price)));
-    var content = el('div', [ 'class="content"' ], el('div', [ 'class="ui basic segment"' ], el('div', [ 'class="ui two column stackable center aligned grid"' ], el('div', [ 'class="ui inverted vertical divider"' ], '感兴趣？') + el('div', [ 'class="middle aligned row"' ], price + column))));
+    var column = el('div', ['class="column"'], el('h3', ['class="ui center aligned icon inverted header"'], el('i', ['class="circular envelope open outline grey inverted icon"'], "") + '联系我') + el('div', ['class="ui relaxed celled large list"'], contact));
+    var price = el('div', ['class="column"'], el('div', ['class="ui large yellow statistic"'], el('div', ['class="value"'], el('i', [`class="${config.sell_info.mon_unit} icon"`], "") + config.sell_info.price)));
+    var content = el('div', ['class="content"'], el('div', ['class="ui basic segment"'], el('div', ['class="ui two column stackable center aligned grid"'], el('div', ['class="ui inverted vertical divider"'], '感兴趣？') + el('div', ['class="middle aligned row"'], price + column))));
 
-    return el('div', [ 'id="seller"', 'class="ui basic modal"' ], title + content + action);
+    // return el('div', [ 'id="seller"', 'class="ui basic modal"' ], title + content + action);
+    return el('div', ['id="seller"', 'style="height: 600px;"', 'class="ui basic modal"'], '<iframe width="100%" height="100%" src="https://cf-workers-status-page-production.hnqx.workers.dev"></iframe>');
 }
 
 function renderHTML(index, seller) {
@@ -214,16 +221,16 @@ function renderHTML(index, seller) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>${ config.title } - ${ config.subtitle }</title>
+        <title>LOVE REOL FOREVER</title>
         <link rel="shortcut icon" href="https://hnqx.github.io/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/gh/HNQX/CF-Worker-Dir@master/sty.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/HNQX/CF-Worker-Dir@master/style.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
     </head>
     <body>
-      ${ index }
-      ${ config.selling_ads ? seller : '' }
+      ${index}
+      ${config.selling_ads ? seller : ''}
       <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
       <script>
         $('#sengine a').on('click', function (e) {
